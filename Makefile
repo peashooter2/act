@@ -23,7 +23,7 @@ pr: tidy format-all lint test
 
 .PHONY: build
 build:
-	go build -ldflags "-X main.version=$(VERSION)" -o dist/local/act main.go
+	go build -v -ldflags "-X main.version=$(VERSION) -compressdwarf=false" -gcflags '-E -I -L -N -complete -v' -o dist/local/act main.go
 
 .PHONY: format
 format:
